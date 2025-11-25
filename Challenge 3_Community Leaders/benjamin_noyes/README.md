@@ -93,6 +93,7 @@ From here, the count of mentions was summed together, and divided by the total u
 5. Tab 5: Time: the % of the user segment(s) that used words similar to the given keywords, over time.
 
 # Insights
+Analysis with images can be foud here: https://docs.google.com/document/d/1ss3YIwQBhB1awjnIaxl2X3MBfR5zfU0s1obNl4Jb3U8/edit?tab=t.0
 ##### Prized livestock
 - Datapoint: leaders (as defined by response count) talked more about livestock than non-leaders, and this disparity increased over time. Specifically, valuable livestock –  such as a cattle, goats, donkeys, and camel – were where this difference was centralized. Chatter about less valuable livestock topics, such as hens, chickens, and poultry did not see a difference.
 - Analysis: In Uganda, leaders may have talked more about valuable livestock as a means of sharing their success – in the US, this could be similar to how users post on Instagram to brag about their latest birthday party.
