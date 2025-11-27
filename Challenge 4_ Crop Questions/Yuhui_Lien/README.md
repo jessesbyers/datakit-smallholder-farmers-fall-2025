@@ -241,3 +241,74 @@ The following reports quantify the relationship between farmer necessity and pla
 ### Next Steps:
 
 1. **Knowledge Quality Assessment (BERTopic)**: Implement BERTopic to analyze community response content, shifting the focus from mere answer length to knowledge focus and quality to precisely identify true information gaps.
+
+
+# 🌾 Semantic Knowledge Gap Analysis: Quantifying Farmer Demand vs. Supply Detail
+
+## 1. Executive Summary
+
+This analysis moves beyond simple keyword matching to quantify the semantic difference between the complexity of farmers' questions and the detail of provided answers. By using **TF-IDF (Semantic Weighting)**, we precisely identify the most critical knowledge gaps in the system.
+
+### Key Findings:
+
+* **Data Scope:** The analysis was performed on a significant subset: **5 million English records** filtered from an original dataset of approximately **17 million** farmer interactions.
+* **Critical Mismatch:** The highest $\text{Knowledge\_Gap\_Score}$ is found in topics where farmers use rare, technical terminology (high demand complexity), but receive answers that are common/foundational (low supply detail).
+* **Highest Risk Insight:** The Prioritization Matrix ($\text{Figure 4}$) isolates the topics with the most severe combination of high semantic risk and high user volume, guiding immediate resource allocation.
+
+---
+
+## 2. Data & Tools
+
+| Feature | Description | Status |
+| :--- | :--- | :--- |
+| **Original Data Size** | ~17 Million interaction records | Filtered |
+| **Analysis Dataset Size** | **~5 Million English-only records** | Used |
+| **Analysis File** | `semantic_gap_analysis_final (1).csv` | Generated |
+| **Demand Column** | `question_content_cleaned` | Used |
+| **Supply Column** | `response_content_cleaned` | Used |
+| **Main Tools** | $\text{Pandas}, \text{Numpy}, \text{Scikit-learn}$ ($\text{TF-IDF}$), $\text{Seaborn}, \text{Matplotlib}$ | Used |
+
+---
+
+## 3. Methodology: Optimized Semantic Gap Scoring
+
+The analysis relies on a robust quantitative framework that measures the complexity of demand and the detail of supply across all topics.
+
+### A. Feature Engineering: Semantic Scoring
+
+* **Demand Complexity Score (B):** The average $\text{TF-IDF}$ weight of the questions.
+* **Supply Detail Score (C):** The average $\text{TF-IDF}$ weight of the answers.
+
+### B. Gap Calculation (Knowledge Gap Score)
+
+$$\text{Knowledge\_Gap\_Score} = \text{Average\_Demand\_Complexity} - \text{Average\_Supply\_Detail}$$
+
+---
+
+## 4. Key Findings & Visualizations
+
+The four charts provide a complete diagnostic view, moving from basic frequency to complex risk assessment.
+
+### Figure 1: Demand Volume Ranking (Frequency)
+(File: $\text{top\_10\_question\_volume\_report.png}$)
+![Top 10 Question Topics by Demand Volume](https://github.com/yhlien1221/datakit-smallholder-farmers-fall-2025/blob/main/Challenge%204_%20Crop%20Questions/Yuhui_Lien/pictures/top_10_question_volume_report.png)
+
+* **Goal:** To identify the topics with the highest absolute user query volume, indicating areas of high impact and resource consumption (e.g., $\text{maize}, \text{poultry}$).
+
+### Figure 2: Knowledge Gap Ranking (Top 15 Unmet Demand)
+(File: $\text{1\_gap\_ranking\_report.png}$)
+![Knowledge Gap Ranking Report](https://github.com/yhlien1221/datakit-smallholder-farmers-fall-2025/blob/main/Challenge%204_%20Crop%20Questions/Yuhui_Lien/pictures/1_gap_ranking_report.png)
+
+* **Goal:** Directly list the $\text{Top 15}$ topics with the highest $\text{Knowledge\_Gap\_Score}$ (risk), irrespective of query volume.
+
+### Figure 3: Semantic Mismatch: Supply vs. Demand
+(File: $\text{2\_supply\_demand\_mismatch\_labeled.png}$)
+![Semantic Mismatch Comparison Chart](https://github.com/yhlien1221/datakit-smallholder-farmers-fall-2025/blob/main/Challenge%204_%20Crop%20Questions/Yuhui_Lien/pictures/2_supply_demand_mismatch_labeled.png)
+
+* **Goal:** Diagnose *why* the gap exists by comparing the two core components (Demand Complexity vs. Supply Detail).
+
+### Figure 4: Prioritization Matrix (Volume vs. Gap)
+(File: $\text{3\_priority\_matrix\_labeled\_seaborn.png}$)
+![Prioritization Matrix: Volume vs. Semantic Gap](https://github.com/yhlien1221/datakit-smallholder-farmers-fall-2025/blob/main/Challenge%204_%20Crop%20Questions/Yuhui_Lien/pictures/3_priority_matrix_labeled_seaborn.png)
+
+* **Goal:** The ultimate decision-making tool, plotting Risk ($\text{Y-axis}$) against Impact ($\text{X-axis}$, $\text{Log Scale}$).
