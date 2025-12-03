@@ -42,4 +42,6 @@ as you can see below some rows are same but the only difference is their questio
   <b>Before</b> 🡒 <b>After</b>
 </p>
 
+You can see that before there was 2 different rows one of them has 'pig' as question topic and other 'coconut' after using this function it's now only 1 row and seperated by comma.
+
 Actually this eda was more about having a more clear data to analyze because the data was too big in the beginning so as i continue to analyze i will add more insights and there will be improved version for challenge 5. But for not here you can find more efficient data
